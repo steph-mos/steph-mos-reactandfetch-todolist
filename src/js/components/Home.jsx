@@ -1,5 +1,5 @@
 import React, { useEffect, useState, } from "react";
-import { FaEdit, FaRegTrashAlt } from "react-icons/fa";
+import { FaRegTrashAlt } from "react-icons/fa";
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
@@ -71,7 +71,7 @@ const Home = () => {
       });
   }
 
-  /* Eliminar una tarea */
+ /* Eliminar una tarea */
 
   function Delete(index) {
     const item = todos[index];
