@@ -9,3 +9,54 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+
+body {
+    background-color: blue;
+}
+
+h1{
+    font-size: 3.5rem;
+    color:blue;
+    padding: 5px;
+    font-family:'Helvetica Neue', sans-serif;
+
+}
+
+.form-control {
+    width: 500px;
+    height: inherit;
+    font-size: 1.5rem;
+    margin: auto;
+    color:blue;
+    background-color: azure;
+}
+
+
+.lista-tareas {
+    background-color: azure;
+    border-radius: 30px;
+    width: 600px;
+    height: auto;
+    margin: auto;
+    padding-bottom: 30px;
+
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    font-size: 1.5rem;
+    font-family:'Helvetica Neue', sans-serif;
+    background-color: blue;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+}
+
+button {
+    width: 50px;
+    height: fit-content;
+    float: right;
+}
