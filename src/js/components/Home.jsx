@@ -1,5 +1,5 @@
 import React, { useEffect, useState, } from "react";
-import { FaRegTrashAlt } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
@@ -18,7 +18,7 @@ const Home = () => {
       .then((response) => {
         console.log(response);
         if (response.ok == false) {
-          throw new Error(`error ${response.status}:${response.statusText}`);
+          throw new Error(`Error ${response.status}:${response.statusText} usuario incorrecto.`);
         }
 
         return response.json();
@@ -82,52 +82,52 @@ const Home = () => {
         if (!response.ok) throw new Error(`error ${response.status}:${response.statusText}`);
         getTodos();
       })
-      .catch((error) => alert(error.message));
+      // .catch((error) => alert(error.message));
   }
 
 
   return (
+    <>
 
-    <form className="lista-tareas row g-3">
-      <h1 className="text-center mt-5">Mi lista de tareas</h1>
+      <div className="container-fluid todolist">
 
-      <input type="text"
+        <h1 className="text-center mt-5">Todos</h1>
 
-        className="form-control col-auto"
-        placeholder="Añadir nueva tarea"
-        onChange={(event) => setInputValue(event.target.value)}
-        onKeyDown={(event) => {
-          if (event.key === "Enter" && inputValue !== "") {
-            setTodos([...todos]);
-            addTasks();
-          }
-        }}
-        value={inputValue}
+        <input
 
-      />
+          type="text"
+          className="items col-auto"
+          placeholder="Añadir nueva tarea"
+          onChange={(event) => setInputValue(event.target.value)}
+          onKeyDown={(event) => {
+            if (event.key === "Enter" && inputValue !== "") {
+              setTodos([...todos]);
+              addTasks();
+            }
+          }}
+          value={inputValue}
 
-      {todos.map((todo, index) => {
-        return (
+        />
 
-          <ul
-            className="list-group px-5 my-3">
-            <li className="col-auto"
-            >{todo.label}
-              <button className="btn btn-sm pe-3"
-                onClick={() => Delete(index)}>
-                <FaRegTrashAlt size={25} color="white" />
-              </button>
-      
-            </li>
+        {todos.map((todo, index) => {
+          return (
 
+            <ul
+              className="list-group px-5 my-3">
+              <li className="items col-auto"
+              >{todo.label}
 
+                <button className="delete-button"
+                  onClick={() => Delete(index)}>X
+                </button>
 
-          </ul>
+              </li>
 
-        );
-      })}
-
-    </form>
+            </ul>
+          );
+        })}
+      </div>
+    </>
   );
 };
 
