@@ -127,6 +127,8 @@ const Home = () => {
           );
         })}
       </div>
+      <div className="tarjeta-1"> </div>
+      <div className="tarjeta-2"> </div>
     </>
   );
 };
