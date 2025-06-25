@@ -8,12 +8,13 @@ import rigoImage from "../../img/rigo-baby.jpg";
 const Home = () => {
   const [todos, setTodos] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  const user = 'steph-mos'
 
 
   /* Función para ver mi lista de tareas desde la API */
 
   function getTodos() {
-    fetch("https://playground.4geeks.com/todo/users/steph-mos")
+    fetch(`https://playground.4geeks.com/todo/users/${user}`)
 
       .then((response) => {
         console.log(response);
@@ -71,7 +72,7 @@ const Home = () => {
       });
   }
 
- /* Eliminar una tarea */
+  /* Eliminar una tarea */
 
   function Delete(index) {
     const item = todos[index];
@@ -82,7 +83,31 @@ const Home = () => {
         if (!response.ok) throw new Error(`error ${response.status}:${response.statusText}`);
         getTodos();
       })
-      // .catch((error) => alert(error.message));
+      .catch((error) => alert(error.message));
+  }
+
+
+
+
+  function DeleteAll() {
+
+    fetch(`https://playground.4geeks.com/todo/users/${user}`, {
+      method: "DELETE",
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+
+      .then(() => {
+        setTodos([]);
+        fetch(`https://playground.4geeks.com/todo/users/${user}`, {
+          method: "POST",
+          headers: {'Content-Type': 'application/json'}
+        })
+
+      })
+      .then (() => setTodos([]))
+
   }
 
 
@@ -126,6 +151,9 @@ const Home = () => {
             </ul>
           );
         })}
+
+        <button className="delete-all"
+          onClick={DeleteAll}> Borrar todo </button>
       </div>
       <div className="tarjeta-1"> </div>
       <div className="tarjeta-2"> </div>

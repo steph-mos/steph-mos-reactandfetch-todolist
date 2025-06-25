@@ -108,3 +108,14 @@ padding: 5px;
     border-color: #f8f8f8;
     box-shadow: 2px 2px 4px 0 rgba(20, 20, 20, 0.3);
 }
+
+.delete-all {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    font-weight: 100;
+    color: rgb(112, 110, 110);
+    border-radius: 10px;
+    border-color: #f8f8f8;
+    border: 1px;
+    box-shadow: 1px 1px 5px 0 rgba(20, 20, 20, 0.3);
+}
